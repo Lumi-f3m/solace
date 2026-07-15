@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solace OS Workspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link id="userTheme" rel="stylesheet" href="">
+</head>
+<body>
+
+    <div id="dropOverlay" class="drop-overlay hidden">
+        <span class="material-symbols-outlined drop-icon">wallpaper</span>
+        <h2>Drop image to set as wallpaper</h2>
+    </div>
+
+    <div id="splashOverlay" class="splash-screen">
+        <div class="splash-card">
+            <h2>SOLACE OS</h2>
+            <div class="divider"></div>
+            <p class="credit-text">s0lac3 made by:</p>
+            <h3 class="creator-name">Lumi :3</h3>
+            <p class="version-text">BUILD v1.1.6 // ALL RIGHTS RESERVED</p>
+            
+            <button id="skipBtn" class="skip-button" disabled>
+                <span id="countdownText">Initializing (20s)</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="top-nav-container">
+        <div class="nav-segment nav-left">
+            <span class="system-status">solaceOS Beta v1.1.6</span>
+        </div>
+        
+        <div class="nav-segment nav-center">
+            <span class="material-symbols-outlined profile-icon">account_circle</span>
+            <span id="profileUsername">Lumi</span>
+            <span class="role-badge" id="profileRole">User</span>
+        </div>
+        
+        <div class="nav-segment nav-right">
+            <span class="material-symbols-outlined status-icon">wifi</span>
+            <span class="material-symbols-outlined status-icon">battery_charging_full</span>
+            <span id="systemClock" class="clock">00:00 AM</span>
+        </div>
+    </div>
+
+    <div class="desktop-workspace" id="workspace"></div>
+
+    <div class="dock-container">
+        <div class="dock">
+            <div class="dock-item" onclick="launchApp('Browser')" data-tooltip="Web Browser">
+                <span class="material-symbols-outlined dock-icon">explore</span>
+            </div>
+            <div class="dock-item" onclick="launchApp('Terminal')" data-tooltip="Terminal">
+                <span class="material-symbols-outlined dock-icon">terminal</span>
+            </div>
+            <div class="dock-item" onclick="launchApp('Settings')" data-tooltip="Settings">
+                <span class="material-symbols-outlined dock-icon">settings</span>
+            </div>
+            <div class="dock-item" onclick="launchApp('Notes')" data-tooltip="Notes">
+                <span class="material-symbols-outlined dock-icon">edit_note</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/desktop.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/themes.js"></script>
+    <script src="js/terminal.js"></script>
+    <script id="userScript" src=""></script>
+</body>
+</html>

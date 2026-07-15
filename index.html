@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solace OS - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="brand-header">
+            <h1>solace<span>OS</span></h1>
+            <p>Welcome back, please sign in</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="input-wrapper">
+                <span class="material-symbols-outlined icon">person</span>
+                <input type="text" id="username" placeholder="Username" required autocomplete="off">
+            </div>
+            
+            <div class="input-wrapper">
+                <span class="material-symbols-outlined icon">lock</span>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <span>Login</span>
+                <span class="material-symbols-outlined arrow">arrow_forward</span>
+            </button>
+        </form>
+
+        <p id="statusMessage" class="status-text"></p>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

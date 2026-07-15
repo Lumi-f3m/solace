@@ -1,0 +1,204 @@
+/* ===================================================
+   SOLACE OS BETA 1.1.6 - MONITOR CANVAS & BASE SHELLS
+   =================================================== */
+:root {
+    --theme-accent: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* --- Global Utilities & Typography --- */
+.section-title { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.desc-text { font-size: 11px; line-height: 1.6; font-weight: 400; }
+.settings-row { padding: 12px 0; display: flex; align-items: center; justify-content: space-between; font-size: 12px; }
+
+/* ===================================================
+   DESKTOP OS NATIVE WINDOW DESIGN ARCHITECTURE
+   =================================================== */
+.os-window {
+    width: 580px;
+    height: 380px;
+    border-radius: 12px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, color 0.3s ease;
+}
+
+.window-header {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+.window-title { font-size: 12px; font-weight: 500; letter-spacing: 0.3px; }
+.window-controls { position: absolute; left: 16px; display: flex; gap: 8px; }
+.control { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.15); }
+
+.window-content { flex-grow: 1; overflow: hidden; }
+.settings-layout { display: flex; height: 100%; }
+
+.settings-sidebar {
+    width: 150px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+.settings-tab-btn {
+    background: transparent;
+    border: none;
+    font-size: 12px;
+    text-align: left;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 100%;
+    font-weight: 400;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.settings-main-pane {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.theme-selection-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.theme-card {
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+.theme-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.theme-name { font-size: 12px; font-weight: 500; }
+.indicator { width: 8px; height: 8px; border-radius: 50%; }
+.indicator-dark { background: #ffffff; }
+.indicator-nature { background: #16a34a; }
+
+/* ===================================================
+   THEME PRESET 1: BLACKHOLE ENGINE (DEEP DARK MODE)
+   =================================================== */
+html[data-theme="blackhole"] .os-window {
+    background-color: rgba(18, 18, 22, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(20px) !important;
+    color: #ffffff !important;
+}
+html[data-theme="blackhole"] .section-title { color: rgba(255, 255, 255, 0.4) !important; }
+html[data-theme="blackhole"] .desc-text { color: rgba(255, 255, 255, 0.5) !important; }
+html[data-theme="blackhole"] .settings-row { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+html[data-theme="blackhole"] .settings-tab-btn { color: rgba(255, 255, 255, 0.45); }
+html[data-theme="blackhole"] .settings-tab-btn:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+html[data-theme="blackhole"] .settings-tab-btn.active-tab { background: rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; font-weight: 500; }
+html[data-theme="blackhole"] .theme-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); }
+html[data-theme="blackhole"] .theme-card:hover { background: rgba(255, 255, 255, 0.04); }
+html[data-theme="blackhole"] .theme-card.active-theme-card { background: rgba(255, 255, 255, 0.05) !important; border-color: rgba(255, 255, 255, 0.4) !important; }
+
+/* ===================================================
+   THEME PRESET 2: NATURE ENGINE (STEALTH MINT GLASS WINDOW MODE)
+   =================================================== */
+html[data-theme="nature"] .os-window {
+    background-color: rgba(255, 255, 255, 0.07) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(25px) saturate(140%) !important;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+html[data-theme="nature"] .window-header { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+html[data-theme="nature"] .settings-sidebar { border-right: 1px solid rgba(255, 255, 255, 0.08); }
+html[data-theme="nature"] .section-title { color: rgba(255, 255, 255, 0.6) !important; }
+html[data-theme="nature"] .desc-text { color: rgba(255, 255, 255, 0.75) !important; }
+html[data-theme="nature"] .settings-row { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+html[data-theme="nature"] .settings-tab-btn { color: rgba(255, 255, 255, 0.6); }
+html[data-theme="nature"] .settings-tab-btn:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
+html[data-theme="nature"] .settings-tab-btn.active-tab { background: rgba(255, 255, 255, 0.12) !important; color: #ffffff !important; font-weight: 500; }
+html[data-theme="nature"] .theme-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+html[data-theme="nature"] .theme-card:hover { background: rgba(255, 255, 255, 0.08); }
+html[data-theme="nature"] .theme-card.active-theme-card { background: rgba(255, 255, 255, 0.14) !important; border-color: rgba(255, 255, 255, 0.5) !important; }
+
+/* ===================================================
+   SYSTEM TASK WRAPPERS & FIXED FLOATING OVERLAYS
+   =================================================== */
+
+.top-navbar, .dock-container {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    display: flex;
+    box-sizing: border-box;
+    width: 100vw;
+    z-index: 9999;
+}
+.top-navbar { padding: 12px 16px; justify-content: space-between; align-items: center; }
+.dock-container { padding-bottom: 16px; justify-content: center; }
+
+/* Global Desktop Pill Form Factor Configurations */
+.status-pill, .user-pill, .dock {
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.3s ease, border 0.3s ease, backdrop-filter 0.3s ease, color 0.3s ease;
+}
+.badge { font-size: 8px; font-weight: 700; background: rgba(255,255,255,0.15); padding: 2px 5px; border-radius: 4px; letter-spacing: 0.5px; }
+.dock { padding: 10px 22px; border-radius: 28px; gap: 16px; }
+.dock-icon { background: transparent; border: none; cursor: pointer; font-size: 18px; transition: transform 0.2s ease; }
+.dock-icon:hover { transform: scale(1.15); }
+
+/* --- Interface Element Styles: BLACKHOLE --- */
+html[data-theme="blackhole"] .top-nav-container .nav-segment,
+html[data-theme="blackhole"] .dock {
+    background-color: rgba(15, 15, 18, 0.7) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+}
+
+/* --- Interface Element Styles: NATURE (Fixed Exact Selector Strings) --- */
+html[data-theme="nature"] .top-nav-container .nav-segment,
+html[data-theme="nature"] .dock {
+    background-color: rgba(187, 247, 208, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(20px) saturate(120%) !important;
+    color: #111827 !important;
+}
+html[data-theme="nature"] .top-nav-container .nav-segment .system-status,
+html[data-theme="nature"] .top-nav-container .nav-segment .clock,
+html[data-theme="nature"] .top-nav-container .nav-segment #profileUsername,
+html[data-theme="nature"] .top-nav-container .nav-segment .status-icon,
+html[data-theme="nature"] .top-nav-container .nav-segment .profile-icon {
+    color: #ffffff !important;
+}
+html[data-theme="nature"] .badge { background: rgba(0, 0, 0, 0.08); color: #111827; }

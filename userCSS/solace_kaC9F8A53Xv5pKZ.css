@@ -1,0 +1,14 @@
+#profileUsername {
+    background: linear-gradient(90deg, #ffb6c1, #98fb98);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+#profileRole {
+    display: inline-block !important;
+    background: linear-gradient(90deg, rgba(255,182,193,0.15), rgba(152,251,152,0.15));
+    border: 1px solid rgba(152,251,152,0.4); color: #98fb98;
+    font-size: 9px; font-weight: 600; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 6px; margin-left: 6px; letter-spacing: 0.5px;
+}
